@@ -17,7 +17,7 @@ public class StringFinder {
 		SearchStr = query;
 		try {
 			Scanner S = new Scanner(file);
-			int lineNumber = 0;
+			int lineNumber = 0, occurancesFound=0;
 			while (S.hasNextLine()) {
 				lineNumber++;
 				String line = S.nextLine();
@@ -25,10 +25,15 @@ public class StringFinder {
 					if (line.toLowerCase().contains(SearchStr.toLowerCase())) {
 						System.out.println("\"" + SearchStr
 								+ "\" Found on line: " + lineNumber);
+						occurancesFound++;
 					}
 				}
 			}
+			if(occurancesFound==0) {
 			System.out.println("\"" + SearchStr + "\" Not Found");
+			} else {
+				System.out.println(occurancesFound + " Occurances Found.");
+			}
 			S.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Scanner Cannot Scan the file: " + filePath
