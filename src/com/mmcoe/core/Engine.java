@@ -7,7 +7,7 @@ public class Engine {
 	public static void main(String[] args) {
 		
 		StringFinder SF = new StringFinder();
-		SF.findString("Fox","test.txt");
+		SF.findString(args[0],args[1]);
 			
 	}
 
