@@ -20,10 +20,12 @@ public class StringFinder {
 			int lineNumber = 0;
 			while (S.hasNextLine()) {
 				lineNumber++;
-				if (S.nextLine().toLowerCase()
-						.contains(SearchStr.toLowerCase())) {
-					System.out.println("\"" + SearchStr + "\" Found on line: "
-							+ lineNumber);
+				String line = S.nextLine();
+				if (!isBlank(line)) {
+					if (line.toLowerCase().contains(SearchStr.toLowerCase())) {
+						System.out.println("\"" + SearchStr
+								+ "\" Found on line: " + lineNumber);
+					}
 				}
 			}
 			System.out.println("\"" + SearchStr + "\" Not Found");
@@ -33,5 +35,18 @@ public class StringFinder {
 					+ "\n\nLog:\n\n");
 			e.printStackTrace();
 		}
+	}
+
+	public static boolean isBlank(String str) {
+		int strLen;
+		if (str == null || (strLen = str.length()) == 0) {
+			return true;
+		}
+		for (int i = 0; i < strLen; i++) {
+			if ((Character.isWhitespace(str.charAt(i)) == false)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
