@@ -23,17 +23,18 @@ public class StringFinder {
 				String line = S.nextLine();
 				if (!isBlank(line)) {
 					if (line.toLowerCase().contains(SearchStr.toLowerCase())) {
-						System.out.println("\"" + SearchStr
-								+ "\" Found on line: " + lineNumber);
 						occurancesFound += getAllIndexesOfSubstringInString(
 								line, SearchStr);
+						System.out.println("\"" + SearchStr
+								+ "\" Found on line: " + lineNumber + ": "+ occurancesFound + "Occurances");
+
 					}
 				}
 			}
 			if (occurancesFound == 0) {
 				System.out.println("\"" + SearchStr + "\" Not Found");
 			} else {
-				System.out.println(occurancesFound + " Occurances Found.");
+				System.out.println(occurancesFound + "Total Occurances Found.");
 			}
 			S.close();
 		} catch (FileNotFoundException e) {
