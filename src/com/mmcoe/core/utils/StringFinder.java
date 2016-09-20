@@ -17,7 +17,7 @@ public class StringFinder {
 		SearchStr = query;
 		try {
 			Scanner S = new Scanner(file);
-			int lineNumber = 0, occurancesFound=0;
+			int lineNumber = 0, occurancesFound = 0;
 			while (S.hasNextLine()) {
 				lineNumber++;
 				String line = S.nextLine();
@@ -25,12 +25,13 @@ public class StringFinder {
 					if (line.toLowerCase().contains(SearchStr.toLowerCase())) {
 						System.out.println("\"" + SearchStr
 								+ "\" Found on line: " + lineNumber);
-						occurancesFound++;
+						occurancesFound += getAllIndexesOfSubstringInString(
+								line, SearchStr);
 					}
 				}
 			}
-			if(occurancesFound==0) {
-			System.out.println("\"" + SearchStr + "\" Not Found");
+			if (occurancesFound == 0) {
+				System.out.println("\"" + SearchStr + "\" Not Found");
 			} else {
 				System.out.println(occurancesFound + " Occurances Found.");
 			}
@@ -53,5 +54,20 @@ public class StringFinder {
 			}
 		}
 		return true;
+	}
+
+	private static int getAllIndexesOfSubstringInString(String fullString,
+			String substring) {
+		int atIndex = 0;
+		int count = 0;
+		while (atIndex != -1) {
+			atIndex = fullString.indexOf(substring, atIndex);
+
+			if (atIndex != -1) {
+				count++;
+				atIndex += substring.length();
+			}
+		}
+		return count;
 	}
 }
