@@ -31,8 +31,9 @@ public class StringFinder {
 								+ occurancesFound + " Occurances");
 
 					}
+				} else {
+					paraNumber++;
 				}
-				paraNumber++;
 			}
 			if (occurancesFound == 0) {
 				System.out.println("\"" + SearchStr + "\" Not Found");
