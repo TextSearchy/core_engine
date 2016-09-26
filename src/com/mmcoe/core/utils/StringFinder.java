@@ -17,7 +17,7 @@ public class StringFinder {
 		SearchStr = query;
 		try {
 			Scanner S = new Scanner(file);
-			int lineNumber = 0, occurancesFound = 0;
+			int lineNumber = 0, occurancesFound = 0, paraNumber = 1;
 			while (S.hasNextLine()) {
 				lineNumber++;
 				String line = S.nextLine();
@@ -26,15 +26,19 @@ public class StringFinder {
 						occurancesFound += getAllIndexesOfSubstringInString(
 								line, SearchStr);
 						System.out.println("\"" + SearchStr
-								+ "\" Found on line: " + lineNumber + ": "+ occurancesFound + " Occurances");
+								+ "\" Found on: Paragraph " + paraNumber
+								+ ", line: " + lineNumber + ": "
+								+ occurancesFound + " Occurances");
 
 					}
 				}
+				paraNumber++;
 			}
 			if (occurancesFound == 0) {
 				System.out.println("\"" + SearchStr + "\" Not Found");
 			} else {
-				System.out.println(occurancesFound + " Total Occurances Found.");
+				System.out
+						.println(occurancesFound + " Total Occurances Found.");
 			}
 			S.close();
 		} catch (FileNotFoundException e) {
