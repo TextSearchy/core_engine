@@ -23,12 +23,13 @@ public class StringFinder {
 				String line = S.nextLine();
 				if (!isBlank(line)) {
 					if (line.toLowerCase().contains(SearchStr.toLowerCase())) {
-						occurancesFound += getAllIndexesOfSubstringInString(
+						int occurancesFoundInLine = getAllIndexesOfSubstringInString(
 								line, SearchStr);
 						System.out.println("\"" + SearchStr
 								+ "\" Found on: Paragraph " + paraNumber
 								+ ", line: " + lineNumber + ": "
-								+ occurancesFound + " Occurances");
+								+ occurancesFoundInLine + " Occurances");
+						occurancesFound +=occurancesFoundInLine;
 
 					}
 				} else {
